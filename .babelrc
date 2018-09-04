@@ -1,3 +1,15 @@
 {
-  "presets": ["react-native"]
+  "presets": ["react-native"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "components": "./src/components",
+          "lib": "./src/lib"
+        },
+        "extensions": [".js", ".ios.js", ".android.js"]
+      }
+    ]
+  ]
 }
