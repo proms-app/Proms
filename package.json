@@ -20,6 +20,10 @@
     "react-redux": "^5.0.7"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "@types/react": "^16.4.14",
+    "@types/react-native": "^0.56.21",
+    "@types/react-test-renderer": "^16.0.2",
     "babel-jest": "23.4.2",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-preset-flow": "^6.23.0",
@@ -28,13 +32,31 @@
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^5.5.0",
     "eslint-config-bambi": "^1.4.0",
-    "flow-bin": "0.67",
     "jest": "23.5.0",
     "prettier": "^1.14.2",
-    "react-test-renderer": "16.4.1"
+    "react-native-storybook": "^1.0.0",
+    "react-native-typescript-transformer": "^1.2.10",
+    "react-test-renderer": "16.4.1",
+    "ts-jest": "^23.1.4",
+    "typescript": "^3.0.3"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(js)$": "<rootDir>/node_modules/babel-jest",
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": [
+      "\\.snap$",
+      "<rootDir>/node_modules/"
+    ],
+    "cacheDirectory": ".jest/cache"
   },
   "config": {
     "commitizen": {
