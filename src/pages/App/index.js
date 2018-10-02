@@ -1,18 +1,87 @@
-// @flow
 import React from 'react';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import I18n from 'lib/i18n';
 
+import {
+  defaultTopNavigationOptions,
+  defaultBottomNavigationOptions,
+} from '../../style/defaultNavigationOptions';
 import Home from './Home';
+import Profile from './Profile';
+import Newsfeed from './Newsfeed';
+import Account from './Account';
 
-const ModalNavigator = createStackNavigator(
+const TabNavigator = createBottomTabNavigator(
   {
+    account: {
+      screen: Account,
+      navigationOptions: {
+        title: 'Mon Compte',
+      },
+    },
+    newsfeed: {
+      screen: Newsfeed,
+      navigationOptions: {
+        title: 'Mon Newsfeed',
+      },
+    },
     home: {
       screen: Home,
+      navigationOptions: {
+        title: 'Home',
+      },
+    },
+    profile: {
+      screen: Profile,
+      navigationOptions: {
+        title: 'Mon Profil',
+      },
     },
   },
   {
     initialRouteName: 'home',
+    tabBarOptions: {
+      ...defaultBottomNavigationOptions,
+    },
+  }
+);
+
+TabNavigator.navigationOptions = ({ navigation }) => {
+  const { routeName } = navigation.state.routes[navigation.state.index];
+  const headerTitle = routeName.toLowerCase();
+  const title = I18n.t(`${headerTitle}.tabName`);
+  return {
+    title,
+    headerRight: null,
+  };
+};
+
+const CardNavigator = createStackNavigator(
+  {
+    main: {
+      screen: TabNavigator,
+    },
+  },
+  {
+    initialRouteName: 'main',
+    navigationOptions: {
+      ...defaultTopNavigationOptions,
+    },
+  }
+);
+
+const ModalNavigator = createStackNavigator(
+  {
+    main: {
+      screen: CardNavigator,
+    },
+  },
+  {
+    initialRouteName: 'main',
     mode: 'modal',
+    navigationOptions: {
+      header: null,
+    },
   }
 );
 

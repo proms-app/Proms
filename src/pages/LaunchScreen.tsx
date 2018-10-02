@@ -6,7 +6,7 @@ import I18n from 'lib/i18n';
 import CenteredPage from 'components/CenteredPage';
 
 type PropsType = {
-  navigation: NavigationType,
+  navigation: NavigationType;
 };
 
 class AuthLoadingScreen extends React.Component<PropsType> {

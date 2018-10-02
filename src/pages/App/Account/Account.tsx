@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 type PropsType = {};
-export default class Home extends Component<PropsType> {
+
+export default class Account extends Component<PropsType> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Home Page</Text>
+        <Text style={styles.welcome}>My Account Here</Text>
       </View>
     );
   }
