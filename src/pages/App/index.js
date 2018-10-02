@@ -16,25 +16,25 @@ const TabNavigator = createBottomTabNavigator(
     account: {
       screen: Account,
       navigationOptions: {
-        title: 'Mon Compte',
+        title: I18n.t(`account.iconName`),
       },
     },
     newsfeed: {
       screen: Newsfeed,
       navigationOptions: {
-        title: 'Mon Newsfeed',
+        title: I18n.t(`newsfeed.iconName`),
       },
     },
     home: {
       screen: Home,
       navigationOptions: {
-        title: 'Home',
+        title: I18n.t(`home.iconName`),
       },
     },
     profile: {
       screen: Profile,
       navigationOptions: {
-        title: 'Mon Profil',
+        title: I18n.t(`profile.iconName`),
       },
     },
   },
