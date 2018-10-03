@@ -11,6 +11,3 @@
 
 - `git clone git@github.com:amauryw/promo.git`
 
-## To Do
-
-- `install react-navigation with` [link](https://reactnavigation.org/docs/en/getting-started.html)
