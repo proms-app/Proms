@@ -36,6 +36,10 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
+#other
+package-lock.json
+.gitignore
+
 # BUCK
 buck-out/
 \.buckd/
