@@ -7,7 +7,7 @@ export default class Home extends Component<PropsType> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Home Page</Text>
+        <Text style={styles.welcome}>Li 213</Text>
       </View>
     );
   }

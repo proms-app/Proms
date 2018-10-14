@@ -1,29 +1,41 @@
 // @flow
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import EventCard from '../../../components/EventCard';
+import { getEvents } from '../../../modules/api';
 
-type PropsType = {};
+const SUB_HEADER_HEIGHT = 140;
+
+type EventType = {
+  id: string;
+  title: string;
+  date: string;
+  location: string;
+  subscriptions: number;
+  description: string;
+};
+
+type PropsType = {
+  // events: Array<EventType>;
+};
 
 export default class Newsfeed extends Component<PropsType> {
   render() {
+    const events = getEvents();
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Newsfeed</Text>
-      </View>
+      <ScrollView>
+        <View style={styles.subHeader} />
+
+        {events.map(elem => (
+          <EventCard event={elem} />
+        ))}
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  subHeader: {
+    height: SUB_HEADER_HEIGHT,
   },
 });

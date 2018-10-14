@@ -39,7 +39,7 @@ const TabNavigator = createBottomTabNavigator(
     },
   },
   {
-    initialRouteName: 'home',
+    initialRouteName: 'newsfeed',
     tabBarOptions: {
       ...defaultBottomNavigationOptions,
     },
