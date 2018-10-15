@@ -2,9 +2,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import EventCard from '../../../components/EventCard';
+import NewsfeedSubHeader from './components/NewsfeedSubHeader';
 import { getEvents } from '../../../modules/api';
-
-const SUB_HEADER_HEIGHT = 140;
 
 type EventType = {
   id: string;
@@ -24,7 +23,7 @@ export default class Newsfeed extends Component<PropsType> {
     const events = getEvents();
     return (
       <ScrollView>
-        <View style={styles.subHeader} />
+        <NewsfeedSubHeader />
 
         {events.map(elem => (
           <EventCard event={elem} />
@@ -33,9 +32,3 @@ export default class Newsfeed extends Component<PropsType> {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  subHeader: {
-    height: SUB_HEADER_HEIGHT,
-  },
-});
