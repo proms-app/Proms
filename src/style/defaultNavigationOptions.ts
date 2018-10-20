@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
 import { View } from 'react-native';
-import style from '../style/appStyle';
+import appStyle from '../style/appStyle';
 
 export const defaultTopNavigationOptions = {
   headerStyle: {
-    backgroundColor: style.color.primary,
+    backgroundColor: appStyle.color.primary,
   },
   headerTitleStyle: {
     flex: 1,
@@ -17,11 +17,11 @@ export const defaultTopNavigationOptions = {
 
 export const defaultBottomNavigationOptions = {
   style: {
-    backgroundColor: style.color.primary,
+    backgroundColor: appStyle.color.primary,
     alignItems: 'center',
     height: 20,
   },
-  inactiveTintColor: style.color.secondary,
+  inactiveTintColor: appStyle.color.secondary,
   activeTintColor: 'black',
   labelStyle: {
     fontSize: 11,
