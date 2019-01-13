@@ -1,6 +1,12 @@
 // this file should regroup all api call
 // for now the call are fake unntil we install the api
 
+export function getUser() {
+  const text = fetch('http://192.168.43.106:8888/').then(response => response.json());
+  console.log(text);
+  return text;
+}
+
 export function getUserInfo() {
   const user = {
     id: 'userId',
@@ -9,6 +15,10 @@ export function getUserInfo() {
     nums: '124-142',
     promo: 213,
     tbk: 'Li',
+    avatar: 'url',
+    travail: 'Dev',
+    localisation: 'Paris',
+    mobile: '0600000000',
   };
 
   return user;

@@ -2,7 +2,6 @@
 
 import { ActivityIndicator, AsyncStorage, StatusBar, Text } from 'react-native';
 import React from 'react';
-import I18n from 'lib/i18n';
 import CenteredPage from 'components/CenteredPage';
 
 type PropsType = {
@@ -25,7 +24,7 @@ class AuthLoadingScreen extends React.Component<PropsType> {
     return (
       <CenteredPage>
         <ActivityIndicator />
-        <Text>{I18n.t('loading')}</Text>
+        <Text>Loading</Text>
         <StatusBar barStyle="default" />
       </CenteredPage>
     );

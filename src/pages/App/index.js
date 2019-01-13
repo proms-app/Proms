@@ -1,6 +1,5 @@
 import React from 'react';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-import I18n from 'lib/i18n';
 
 import {
   defaultTopNavigationOptions,
@@ -16,45 +15,35 @@ const TabNavigator = createBottomTabNavigator(
     account: {
       screen: Account,
       navigationOptions: {
-        title: I18n.t(`account.iconName`),
+        title: 'Compte',
       },
     },
     newsfeed: {
       screen: Newsfeed,
       navigationOptions: {
-        title: I18n.t(`newsfeed.iconName`),
+        title: 'Events',
       },
     },
     home: {
       screen: Home,
       navigationOptions: {
-        title: I18n.t(`home.iconName`),
+        title: 'Home',
       },
     },
     profile: {
       screen: Profile,
       navigationOptions: {
-        title: I18n.t(`profile.iconName`),
+        title: 'Profile',
       },
     },
   },
   {
-    initialRouteName: 'newsfeed',
+    initialRouteName: 'home',
     tabBarOptions: {
       ...defaultBottomNavigationOptions,
     },
   }
 );
-
-TabNavigator.navigationOptions = ({ navigation }) => {
-  const { routeName } = navigation.state.routes[navigation.state.index];
-  const headerTitle = routeName.toLowerCase();
-  const title = I18n.t(`${headerTitle}.tabName`);
-  return {
-    title,
-    headerRight: null,
-  };
-};
 
 const CardNavigator = createStackNavigator(
   {
