@@ -28,7 +28,7 @@ export default class Newsfeed extends Component<PropsType> {
         <NewsfeedSubHeader />
 
         {events.map(elem => (
-          <EventCard event={elem} />
+          <EventCard key={`${elem.id}`} event={elem} />
         ))}
       </ScrollView>
     );

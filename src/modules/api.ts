@@ -1,4 +1,3 @@
-// this file should regroup all api call
 // for now the call are fake unntil we install the api
 
 export function getUser() {
