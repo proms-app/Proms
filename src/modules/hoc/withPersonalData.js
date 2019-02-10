@@ -25,6 +25,7 @@ const withPersonalData = id => WrappedComponent => {
           return response;
         })
         .catch(error => {
+          console.log(error);
           this.setState({
             hasError: true,
             loading: false,

@@ -10,6 +10,10 @@ type PropsType = {
 
 export default class Home extends Component<PropsType> {
   render() {
+    const { hasError, loading } = this.props;
+
+    if (loading) return <Text>Loading...</Text>;
+    if (hasError) return <Text>Error in fetching data</Text>;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Li 213</Text>
