@@ -2,7 +2,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-type PropsType = {};
+type PropsType = {
+  user: UserType | {};
+  loading: boolean;
+  hasError: boolean;
+};
+
 export default class Home extends Component<PropsType> {
   render() {
     return (
