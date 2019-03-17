@@ -1,14 +1,18 @@
 // @flow
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {getUserInfo} from '../../../modules/api';
 
 type PropsType = {};
 
 export default class Account extends Component<PropsType> {
   render() {
+    const user = getUserInfo();
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>My Account Here</Text>
+        <View style={styles.welcomeContainer}>
+          <Text style={styles.welcome}>Sal's {user.bucque}</Text>
+        </View>
       </View>
     );
   }
@@ -17,13 +21,14 @@ export default class Account extends Component<PropsType> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 40,
     textAlign: 'center',
-    margin: 10,
+    fontWeight: "600",
   },
+  welcomeContainer: {
+    marginTop: 80,
+  }
 });

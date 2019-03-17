@@ -38,7 +38,7 @@ const TabNavigator = createBottomTabNavigator(
     },
   },
   {
-    initialRouteName: 'home',
+    initialRouteName: 'account',
     tabBarOptions: {
       ...defaultBottomNavigationOptions,
     },
