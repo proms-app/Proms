@@ -9,15 +9,15 @@ export function getUser() {
 export function getUserInfo() {
   const user = {
     id: 'userId',
-    firstName: 'Bouchet',
-    lastName: 'Clement',
-    nums: '124-142',
-    promo: 213,
-    tbk: 'Li',
-    avatar: 'url',
-    travail: 'Dev',
-    localisation: 'Paris',
-    mobile: '0600000000',
+    nom: 'Bouchet',
+    prenom: 'Clement',
+    bucque: 'Dja Sprey',
+    nums: 124,
+    email: 'clement.bouchet@gadzorg',
+    telephone: '0600000000',
+    solde: 10.2,
+    lieu: 'Paris',
+    activite: 'Dev'
   };
 
   return user;
