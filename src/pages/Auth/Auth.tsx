@@ -4,7 +4,7 @@ import React from 'react';
 import CenteredPage from 'components/CenteredPage';
 
 type PropsType = {
-  navigation: NavigationType,
+  navigation: NavigationType;
 };
 
 class FirstPage extends React.Component<PropsType> {
@@ -17,6 +17,7 @@ class FirstPage extends React.Component<PropsType> {
     return (
       <CenteredPage>
         <Button title="Sign in!" onPress={this.signInAsync} />
+        <Button title="Sign up!" onPress={() => console.log('you clicked on SignUp')} />
       </CenteredPage>
     );
   }
