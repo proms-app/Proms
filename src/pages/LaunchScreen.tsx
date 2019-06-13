@@ -1,6 +1,6 @@
 //@flow
 
-import { ActivityIndicator, AsyncStorage, StatusBar, Text } from 'react-native';
+import { ActivityIndicator, AsyncStorage, StatusBar, Text, Image, AppRegistry } from 'react-native';
 import React from 'react';
 import CenteredPage from 'components/CenteredPage';
 
@@ -30,5 +30,7 @@ class AuthLoadingScreen extends React.Component<PropsType> {
     );
   }
 }
+
+AppRegistry.registerComponent('AuthLoadingScreen', () => AuthLoadingScreen);
 
 export default AuthLoadingScreen;
