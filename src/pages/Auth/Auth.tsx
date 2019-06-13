@@ -13,11 +13,15 @@ class FirstPage extends React.Component<PropsType> {
     this.props.navigation.navigate('app');
   };
 
+  redirectToSignUpPage = () => {
+    this.props.navigation.navigate('signUp');
+  };
+
   render() {
     return (
       <CenteredPage>
         <Button title="Sign in!" onPress={this.signInAsync} />
-        <Button title="Sign up!" onPress={() => console.log('you clicked on SignUp')} />
+        <Button title="Sign up!" onPress={this.redirectToSignUpPage} />
       </CenteredPage>
     );
   }

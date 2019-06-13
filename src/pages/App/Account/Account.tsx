@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import {getUserInfo} from '../../../modules/api';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import { getUserInfo } from '../../../modules/api';
 
 type PropsType = {};
 
@@ -29,17 +29,17 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 40,
     textAlign: 'center',
-    fontWeight: "600",
+    fontWeight: '600',
   },
   welcomeContainer: {
-    marginTop: 80
+    marginTop: 80,
   },
   balanceContainer: {
-    flex: 5
+    flex: 5,
   },
   balanceText: {
     fontSize: 80,
     textAlign: 'center',
-    fontWeight: "800"
-  }
+    fontWeight: '800',
+  },
 });
