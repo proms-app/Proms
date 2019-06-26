@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, Text} from 'react-native';
 import { LabelInput } from '../../components/LabelInput/LabelInput';
 
 type PropsType = {
@@ -14,21 +14,21 @@ class SignUp extends React.Component<PropsType> {
 
   render() {
     return (
-      <View style={{flex:1, backgroundColor: 'green'}}>
-        <View style={{ flex: 0.1, flexDirection: 'row', alignItems: 'baseline', marginTop: 20}}>
+      <View style={{ flex:1, backgroundColor:'#1FE802'}}>
           <TouchableOpacity
             onPress={this.goBack}
-            style={{ width: 60, height: 30, backgroundColor: 'red'}}
-          />
-        </View>
-        <View style={{flex: 0.9, flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-          <View style={{width: 300, height: 500, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white'}}>
-          <LabelInput title="Nom" />
-          <LabelInput title="Prénom" />
-          <LabelInput title="Email" />
+            style={{ width: 60, height: 30, marginTop: 20, marginLeft:5 , justifyContent:'center'}}>
+            <Text style={{fontWeight:'bold', color:'white'}}>Back</Text>
+          </TouchableOpacity>
+            
+          <View style={{flex:15, justifyContent: 'center', alignItems: 'center',backgroundColor: '#1FE802'}}>
+            <View style={{width: 300, height: 500, flexDirection: 'column', justifyContent: 'space-around', alignItems: 'center', backgroundColor: '1FE802'}}>
+            <LabelInput title="Nom" />
+            <LabelInput title="Prénom" />
+            <LabelInput title="Email" />
+            </View>
           </View>
-        </View>
-      </View>
+      </View> 
     );
   }
 }
