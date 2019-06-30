@@ -14,20 +14,24 @@ class SignUp extends React.Component<PropsType> {
 
   render() {
     return (
-      <View style={{ flex:1, backgroundColor:'#1FE802'}}>
+      <View style={{flex:1, backgroundColor:'#1FE802'}}>
           <TouchableOpacity
             onPress={this.goBack}
-            style={{ width: 60, height: 30, marginTop: 20, marginLeft:5 , justifyContent:'center'}}>
+            style={{flex:1, width: 60, height: 30, marginLeft:5 , justifyContent:'center'}}>
             <Text style={{fontWeight:'bold', color:'white'}}>Back</Text>
           </TouchableOpacity>
             
-          <View style={{flex:15, justifyContent: 'center', alignItems: 'center',backgroundColor: '#1FE802'}}>
-            <View style={{width: 300, height: 500, flexDirection: 'column', justifyContent: 'space-around', alignItems: 'center', backgroundColor: '1FE802'}}>
+          <View style={{flex:6, justifyContent: 'space-between', alignItems: 'center'}}>
             <LabelInput title="Nom" />
             <LabelInput title="Prénom" />
             <LabelInput title="Email" />
-            </View>
           </View>
+
+          <TouchableOpacity
+            onPress={() => {}}
+            style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{fontWeight:'bold', color:'white', fontSize: 30}}>Valider</Text>
+          </TouchableOpacity>   
       </View> 
     );
   }
