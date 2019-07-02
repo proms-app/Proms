@@ -6,6 +6,17 @@ export function getUser() {
   return text;
 }
 
+export const signUp = async (email, password) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/signUp?email=${email}&password=${password}`
+    );
+    return response;
+  } catch (error) {
+    console.log(`User failed to log :${error}`);
+  }
+};
+
 export function getUserInfo() {
   const user = {
     id: 'userId',
@@ -17,7 +28,7 @@ export function getUserInfo() {
     telephone: '0600000000',
     solde: 10.2,
     lieu: 'Paris',
-    activite: 'Dev'
+    activite: 'Dev',
   };
 
   return user;

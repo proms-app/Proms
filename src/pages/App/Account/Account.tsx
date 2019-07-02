@@ -1,6 +1,8 @@
 // @flow
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import { Sae } from 'react-native-textinput-effects';
 import { getUserInfo } from '../../../modules/api';
 
 type PropsType = {};
@@ -13,6 +15,17 @@ export default class Account extends Component<PropsType> {
         <View style={styles.welcomeContainer}>
           <Text style={styles.welcomeText}>Sal's {user.bucque}</Text>
         </View>
+        <Sae
+          label={'Email Address'}
+          iconClass={FontAwesomeIcon}
+          iconName={'pencil'}
+          iconColor={'white'}
+          inputPadding={16}
+          labelHeight={24}
+          borderHeight={2}
+          autoCapitalize={'none'}
+          autoCorrect={false}
+        />
         <View style={styles.balanceContainer}>
           <Text style={styles.balanceText}> {user.solde} </Text>
         </View>
