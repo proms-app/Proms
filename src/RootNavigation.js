@@ -5,6 +5,7 @@ import App from './pages/App';
 import LaunchScreen from './pages/LaunchScreen';
 import Auth from './pages/Auth';
 import SignUp from './pages/SignUp';
+import { SignIn } from './pages/SignIn';
 
 export default createSwitchNavigator(
   {
@@ -12,6 +13,7 @@ export default createSwitchNavigator(
     app: App,
     auth: Auth,
     signUp: SignUp,
+    signIn: SignIn,
   },
   {
     initialRouteName: 'launch',
