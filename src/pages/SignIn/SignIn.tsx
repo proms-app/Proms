@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 5,
     marginHorizontal: 30,
-    marginVertical: 60,
+    marginVertical: 120,
     backgroundColor: '#1f1',
     opacity: 0.4,
     elevation: 1,
@@ -28,23 +28,35 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     marginTop: 30,
     marginHorizontal: 30,
-    borderBottomWidth: 2,
-    borderBottomColor: '#000',
   },
   titleText: {
     color: '#000',
     fontSize: 30,
   },
   inputContainer: {},
+  buttonText: {
+    color: '#000',
+    fontSize: 25
+  },
+  buttonContainer: {
+    marginTop: 55,
+    alignItems: 'center'
+  },
 });
 export class SignIn extends Component<PropsType> {
   goBack = () => {
     this.props.navigation.navigate('auth');
   };
+  login = () => {
+    this.props.navigation.navigate('account');
+  };
 
   render() {
     return (
       <SafeAreaView style={styles.areaView}>
+        <TouchableOpacity onPress={this.goBack}>
+          <Text>Return</Text>
+        </TouchableOpacity>
         <View style={styles.card}>
           <View style={styles.titleContainer}>
             <Text style={styles.titleText}>Login</Text>
@@ -73,11 +85,13 @@ export class SignIn extends Component<PropsType> {
                 secureTextEntry
               />
             </View>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity onPress={this.login}>
+                <Text style={styles.buttonText}>Se connecter</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
-        <TouchableOpacity onPress={this.goBack}>
-          <Text>Return</Text>
-        </TouchableOpacity>
       </SafeAreaView>
     );
   }
