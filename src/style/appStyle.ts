@@ -1,6 +1,6 @@
 const color = {
-  green: 'rgb(50,150,50)',
-  lightGreen: 'rgba(50,200,150, 0.5)',
+  green: '#89E894',
+  lightGreen: '#A3FFC8',
   white: 'rgb(255,255,255)',
 };
 
