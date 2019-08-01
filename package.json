@@ -18,7 +18,6 @@
     "react-native": "0.56.0",
     "react-native-safe-area-view": "^0.14.5",
     "react-native-textinput-effects": "^0.5.1",
-
     "react-navigation": "^2.12.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0"
