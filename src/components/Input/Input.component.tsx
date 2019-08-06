@@ -9,6 +9,7 @@ type PropsType = {
 export const Input = (props: PropsType) => {
   return (
     <Sae
+      {...props}
       iconClass={Text}
       label={props.label || ''}
       iconColor="black"

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-import { Sae } from 'react-native-textinput-effects';
+import { Input } from '../../components/Input';
 import SafeAreaView from 'react-native-safe-area-view';
 
 type PropsType = {
@@ -36,11 +36,11 @@ const styles = StyleSheet.create({
   inputContainer: {},
   buttonText: {
     color: '#000',
-    fontSize: 25
+    fontSize: 25,
   },
   buttonContainer: {
     marginTop: 55,
-    alignItems: 'center'
+    alignItems: 'center',
   },
 });
 export class SignIn extends Component<PropsType> {
@@ -61,29 +61,10 @@ export class SignIn extends Component<PropsType> {
           <View style={styles.titleContainer}>
             <Text style={styles.titleText}>Login</Text>
             <View style={styles.inputContainer}>
-              <Sae
-                iconClass={Text}
-                label="User"
-                iconColor="black"
-                color="black"
-                inputPadding={16}
-                labelHeight={24}
-                borderHeight={2}
-                autoCapitalize="none"
-              />
+              <Input label="Nom d'utilisateur" />
             </View>
             <View style={styles.inputContainer}>
-              <Sae
-                iconClass={Text}
-                label="Password"
-                iconColor="black"
-                color="black"
-                inputPadding={16}
-                labelHeight={24}
-                borderHeight={2}
-                autoCapitalize="none"
-                secureTextEntry
-              />
+              <Input label="Mot de passe" secureTextEntry />
             </View>
             <View style={styles.buttonContainer}>
               <TouchableOpacity onPress={this.login}>
