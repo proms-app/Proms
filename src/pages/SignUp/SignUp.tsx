@@ -1,8 +1,8 @@
 // @flow
-import React, {Component} from 'react';
-import { View, TouchableOpacity, Text, StyleSheet} from 'react-native';
-import { Sae } from 'react-native-textinput-effects';
+import React, { Component } from 'react';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
+import { Input } from '../../components/Input';
 
 type PropsType = {
   navigation: NavigationType;
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   returnText: {
-    marginTop:5,
+    marginTop: 5,
     color: '#000',
   },
   card: {
@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#000',
-    fontSize: 25
+    fontSize: 25,
   },
   buttonContainer: {
     marginTop: 55,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   inputContainer: {},
 });
@@ -62,57 +62,19 @@ export class SignUp extends Component<PropsType> {
           <View style={styles.titleContainer}>
             <Text style={styles.titleText}>Créer un compte</Text>
             <View style={styles.inputContainer}>
-              <Sae
-                iconClass={Text}
-                label="Nom d'utilisateur"
-                iconColor="black"
-                color="black"
-                inputPadding={16}
-                labelHeight={24}
-                borderHeight={2}
-                autoCapitalize="none"
-              />
+              <Input label="Nom d'utilisateur" />
             </View>
             <View style={styles.inputContainer}>
-              <Sae
-                iconClass={Text}
-                label="Email"
-                iconColor="black"
-                color="black"
-                inputPadding={16}
-                labelHeight={24}
-                borderHeight={2}
-                autoCapitalize="none"
-              />
+              <Input label="Email" />
             </View>
             <View style={styles.inputContainer}>
-              <Sae
-                iconClass={Text}
-                label="Mot de passe"
-                iconColor="black"
-                color="black"
-                inputPadding={16}
-                labelHeight={24}
-                borderHeight={2}
-                autoCapitalize="none"
-                secureTextEntry
-              />
+              <Input label="Mot de passe" />
             </View>
             <View style={styles.inputContainer}>
-              <Sae
-                iconClass={Text}
-                label="Confirmer mot de passe"
-                iconColor="black"
-                color="black"
-                inputPadding={16}
-                labelHeight={24}
-                borderHeight={2}
-                autoCapitalize="none"
-                secureTextEntry
-              />
+              <Input label="Confirmer le mot de passe" />
             </View>
             <View style={styles.buttonContainer}>
-              <TouchableOpacity onPress={()=>{}}>
+              <TouchableOpacity onPress={() => {}}>
                 <Text style={styles.buttonText}>Valider</Text>
               </TouchableOpacity>
             </View>
