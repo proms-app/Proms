@@ -7,6 +7,7 @@ import {
 } from '../../style/defaultNavigationOptions';
 import Home from './Home';
 import Profile from './Profile';
+import ProfileModif from './Profile';
 import Newsfeed from './Newsfeed';
 import Account from './Account';
 
@@ -56,8 +57,19 @@ const CardNavigator = createStackNavigator(
     navigationOptions: {
       ...defaultTopNavigationOptions,
     },
-  }
+  },
 );
+
+const ProfileNavigator = createStackNavigator({
+  profile: {
+    screen: Profile
+  },
+  profilemodif: {
+    screen: ProfileModif
+  }
+}
+  
+)
 
 const ModalNavigator = createStackNavigator(
   {
@@ -75,3 +87,6 @@ const ModalNavigator = createStackNavigator(
 );
 
 export default ModalNavigator;
+
+
+
