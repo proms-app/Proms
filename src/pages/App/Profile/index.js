@@ -1,1 +1,1 @@
-export { default } from './Profile';
+export { profileNavigator } from './Profile.navigator';
