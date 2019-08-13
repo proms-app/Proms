@@ -4,6 +4,7 @@ import { Text, StyleSheet, TextInput } from 'react-native';
 
 type PropsType = {
   label: string;
+  value: string
 };
 
 const styles = StyleSheet.create({
@@ -20,7 +21,10 @@ export const UserFieldModif = (props: PropsType) => {
   return (
     <Fragment>
       <Text style={styles.profileTitle}>{props.label}</Text>
-      <TextInput style={styles.profileInput}>''</TextInput>
+      <TextInput 
+      style={styles.profileInput}>
+      placeholder = {props.value}
+      </TextInput>
     </Fragment>
   );
 };
