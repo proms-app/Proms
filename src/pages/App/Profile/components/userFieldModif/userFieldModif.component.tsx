@@ -1,13 +1,16 @@
 import React, { Fragment } from 'react';
-import { Text, StyleSheet, TextInput } from 'react-native';
+import { Text, StyleSheet, TextInput, View } from 'react-native';
 
 
 type PropsType = {
-  label: string;
+  title: string;
   value: string
 };
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1
+  },
   profileTitle: {
     fontSize: 20,
     color: '#D1E3DE',
@@ -19,12 +22,14 @@ const styles = StyleSheet.create({
 
 export const UserFieldModif = (props: PropsType) => {
   return (
-    <Fragment>
-      <Text style={styles.profileTitle}>{props.label}</Text>
-      <TextInput 
-      style={styles.profileInput}>
-      placeholder = {props.value}
-      </TextInput>
-    </Fragment>
+    <View style = {styles.mainContainer} >
+      <Fragment>
+        <Text style={styles.profileTitle}>{props.title}</Text>
+        <TextInput 
+        style={styles.profileInput}
+        placeholder = {props.value}
+        />
+      </Fragment>
+    </View>    
   );
 };

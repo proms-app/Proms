@@ -7,10 +7,10 @@ type PropsType = {
   };
   
   const ChampList = [
-    { label: 'Bucque'},
-    { label: 'Nums'},
-    { label: 'Email'},
-    { label: 'Adresse'}
+    { title: 'Bucque', value: 'Abc' },
+    { title: 'Nums', value: '000' },
+    { title: 'Email', value: 'abc@xyz' },
+    { title: 'Adresse', value: 'Tabagns' }
   ];
   export default class ProfileModif extends Component<PropsType> {
     render() {
@@ -19,17 +19,19 @@ type PropsType = {
           <View style={styles.headContainer}>
             <Text style={styles.headTitle}>NOM Prénom</Text>
           </View>
+          <View style={styles.validateContainer}>
+              <TouchableOpacity onPress={() => {this.props.navigation.navigate('profile')}}>
+                <Text style={styles.cancelButtonText}>Annuler</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => {this.props.navigation.navigate('profile')}}>
+                <Text style={styles.validateButtonText}>OK</Text>
+              </TouchableOpacity> 
+          </View>
           <View style={styles.profileContainer}>
             <View style={styles.userContainer}>
               {ChampList.map(item => {
-                return <UserFieldModif label={item.label} />;
+                return <UserFieldModif title={item.title} value={item.value} />;
               })}
-            </View>
-            <View style={styles.modifContainer}>
-              <TouchableOpacity onPress={() => {this.props.navigation.navigate('profile')}}>
-                <Text style={styles.modifButtonText}>Valider</Text>
-              </TouchableOpacity> 
-              
             </View>
           </View>
           <View style={styles.logoutContainer}>
@@ -63,7 +65,7 @@ type PropsType = {
       marginHorizontal: 10,
     },
     profileContainer: {
-      flex: 4,
+      flex: 3,
       marginVertical: 15,
       marginHorizontal: 10,
       flexDirection: 'row'
@@ -76,24 +78,33 @@ type PropsType = {
       fontSize: 25,
     },
     userContainer: {
-      flex: 3,
-      justifyContent: 'space-around'
+      flex: 2,
+      justifyContent: 'space-between'
     },
-    modifContainer: {
-      flex:1
+    validateContainer: {
+      marginHorizontal: 15,
+      justifyContent: 'space-between',
+      flexDirection: 'row',
+      alignItems: 'center',
+      flex: 0.5
     },
-    modifButtonText:{
-      color: '#59FFAF'
+    cancelButtonText: {
+      color: 'red',
+      fontSize: 15
+    },
+    validateButtonText:{
+      color: '#59FFAF',
+      fontSize: 15
     },
     logoutContainer: {
       flex: 1,
-      justifyContent: 'space-around',
+      justifyContent: 'space-between',
       alignItems: 'center',
     },
     logoutButton: {
       width: 180,
       height: 60,
-      backgroundColor: '#59FFAF',
+      backgroundColor: '#68E8B7',
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 5,

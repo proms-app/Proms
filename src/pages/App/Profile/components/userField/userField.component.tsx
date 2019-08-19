@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 
 type PropsType = {
   title: string;
@@ -7,6 +7,9 @@ type PropsType = {
 };
 
 const styles = StyleSheet.create({
+  mainContainer:{
+    flex: 1
+  },
   profileTitle: {
     fontSize: 20,
     color: '#D1E3DE',
@@ -18,9 +21,11 @@ const styles = StyleSheet.create({
 
 export const UserField = (props: PropsType) => {
   return (
-    <Fragment>
-      <Text style={styles.profileTitle}>{props.title}</Text>
-      <Text style={styles.profileText}>{props.value}</Text>
-    </Fragment>
+    <View style={styles.mainContainer}>
+      <Fragment>
+        <Text style={styles.profileTitle}>{props.title}</Text>
+        <Text style={styles.profileText}>{props.value}</Text>
+      </Fragment>
+    </View>  
   );
 };

@@ -83,20 +83,22 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around'
   },
   modifContainer: {
+    marginVertical: 5,
     flex:1
   },
   modifButtonText:{
-    color: '#59FFAF'
+    color: '#59FFAF',
+    fontSize: 15
   },
   logoutContainer: {
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   logoutButton: {
     width: 180,
     height: 60,
-    backgroundColor: '#59FFAF',
+    backgroundColor: '#68E8B7',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
