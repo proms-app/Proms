@@ -1,5 +1,5 @@
 const color = {
-  green: '#89E894',
+  green: '#68E8B7',
   lightGreen: '#A3FFC8',
   white: 'rgb(255,255,255)',
 };

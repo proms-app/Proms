@@ -11,14 +11,20 @@ type PropsType = {
 const styles = StyleSheet.create({
   areaView: {
     flex: 1,
+    backgroundColor: '#68E8B7'
+  },
+  returnButton: {
+    marginTop: 10,
+    marginHorizontal: 15,
+    color: 'white'
   },
   card: {
     flex: 1,
     borderRadius: 5,
     marginHorizontal: 30,
-    marginVertical: 120,
-    backgroundColor: '#1f1',
-    opacity: 0.4,
+    marginVertical: 150,
+    backgroundColor: 'white',
+    opacity: 0.9,
     elevation: 1,
     shadowColor: '#000',
     shadowOpacity: 0.7,
@@ -35,11 +41,11 @@ const styles = StyleSheet.create({
   },
   inputContainer: {},
   buttonText: {
-    color: '#000',
+    color: '#80FFAA',
     fontSize: 25,
   },
   buttonContainer: {
-    marginTop: 55,
+    marginTop: 40,
     alignItems: 'center',
   },
 });
@@ -54,8 +60,10 @@ export class SignIn extends Component<PropsType> {
   render() {
     return (
       <SafeAreaView style={styles.areaView}>
-        <TouchableOpacity onPress={this.goBack}>
-          <Text>Return</Text>
+        <TouchableOpacity
+        style={styles.returnButton} 
+        onPress={this.goBack}>
+          <Text>Retour</Text>
         </TouchableOpacity>
         <View style={styles.card}>
           <View style={styles.titleContainer}>

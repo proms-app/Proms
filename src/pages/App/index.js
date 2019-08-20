@@ -6,7 +6,7 @@ import {
   defaultBottomNavigationOptions,
 } from '../../style/defaultNavigationOptions';
 import Home from './Home';
-import Profile from './Profile';
+import { profileNavigator } from './Profile/Profile.navigator';
 import Newsfeed from './Newsfeed';
 import Account from './Account';
 
@@ -31,7 +31,7 @@ const TabNavigator = createBottomTabNavigator(
       },
     },
     profile: {
-      screen: Profile,
+      screen: profileNavigator,
       navigationOptions: {
         title: 'Profile',
       },

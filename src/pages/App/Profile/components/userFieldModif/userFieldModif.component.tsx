@@ -1,31 +1,35 @@
 import React, { Fragment } from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, TextInput, View } from 'react-native';
+
 
 type PropsType = {
   title: string;
-  value: string;
+  value: string
 };
 
 const styles = StyleSheet.create({
-  mainContainer:{
+  mainContainer: {
     flex: 1
   },
   profileTitle: {
     fontSize: 20,
     color: '#D1E3DE',
   },
-  profileText: {
+  profileInput: {
     fontSize: 25,
   },
 });
 
-export const UserField = (props: PropsType) => {
+export const UserFieldModif = (props: PropsType) => {
   return (
-    <View style={styles.mainContainer}>
+    <View style = {styles.mainContainer} >
       <Fragment>
         <Text style={styles.profileTitle}>{props.title}</Text>
-        <Text style={styles.profileText}>{props.value}</Text>
+        <TextInput 
+        style={styles.profileInput}
+        placeholder = {props.value}
+        />
       </Fragment>
-    </View>  
+    </View>    
   );
 };

@@ -12,18 +12,20 @@ type PropsType = {
 const styles = StyleSheet.create({
   areaView: {
     flex: 1,
+    backgroundColor: '#68E8B7'
   },
   returnText: {
-    marginTop: 5,
-    color: '#000',
+    marginTop: 10,
+    marginHorizontal: 15,
+    color: 'white',
   },
   card: {
     flex: 1,
     borderRadius: 5,
     marginHorizontal: 30,
     marginVertical: 50,
-    backgroundColor: '#1f1',
-    opacity: 0.4,
+    backgroundColor: 'white',
+    opacity: 0.9,
     elevation: 1,
     shadowColor: '#000',
     shadowOpacity: 0.7,
