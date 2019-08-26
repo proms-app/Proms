@@ -9,6 +9,7 @@ import Home from './Home';
 import { profileNavigator } from './Profile/Profile.navigator';
 import Newsfeed from './Newsfeed';
 import Account from './Account';
+import { renderTabIcon } from '../../components/Icon';
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -16,24 +17,28 @@ const TabNavigator = createBottomTabNavigator(
       screen: Account,
       navigationOptions: {
         title: 'Compte',
+        tabBarIcon: ({ tintColor }) => renderTabIcon('assignment', tintColor),
       },
     },
     newsfeed: {
       screen: Newsfeed,
       navigationOptions: {
         title: 'Events',
+        tabBarIcon: ({ tintColor }) => renderTabIcon('alarm', tintColor),
       },
     },
     home: {
       screen: Home,
       navigationOptions: {
         title: 'Home',
+        tabBarIcon: ({ tintColor }) => renderTabIcon('home', tintColor),
       },
     },
     profile: {
       screen: profileNavigator,
       navigationOptions: {
         title: 'Profile',
+        tabBarIcon: ({ tintColor }) => renderTabIcon('face', tintColor),
       },
     },
   },
