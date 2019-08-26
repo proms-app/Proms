@@ -19,7 +19,6 @@ export const defaultBottomNavigationOptions = {
   style: {
     backgroundColor: appStyle.color.primary,
     alignItems: 'center',
-    height: 20,
   },
   inactiveTintColor: appStyle.color.secondary,
   activeTintColor: 'black',
