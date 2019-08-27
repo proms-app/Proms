@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 
 import { Input } from '../../components/Input';
 import SafeAreaView from 'react-native-safe-area-view';
+import { useMyStore } from '../../modules/me';
 
 type PropsType = {
   navigation: NavigationType;
@@ -11,12 +12,12 @@ type PropsType = {
 const styles = StyleSheet.create({
   areaView: {
     flex: 1,
-    backgroundColor: '#68E8B7'
+    backgroundColor: '#68E8B7',
   },
   returnButton: {
     marginTop: 10,
     marginHorizontal: 15,
-    color: 'white'
+    color: 'white',
   },
   card: {
     flex: 1,
@@ -49,39 +50,53 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-export class SignIn extends Component<PropsType> {
-  goBack = () => {
-    this.props.navigation.navigate('auth');
-  };
-  login = () => {
-    this.props.navigation.navigate('account');
+
+export const SignIn = props => {
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const { login, isLoading, hasErrored } = useMyStore();
+
+  const goBack = () => {
+    props.navigation.navigate('auth');
   };
 
-  render() {
-    return (
-      <SafeAreaView style={styles.areaView}>
-        <TouchableOpacity
-        style={styles.returnButton} 
-        onPress={this.goBack}>
-          <Text>Retour</Text>
-        </TouchableOpacity>
-        <View style={styles.card}>
-          <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>Login</Text>
-            <View style={styles.inputContainer}>
-              <Input label="Nom d'utilisateur" />
-            </View>
-            <View style={styles.inputContainer}>
-              <Input label="Mot de passe" secureTextEntry />
-            </View>
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity onPress={this.login}>
+  const tryLogin = async () => {
+    try {
+      await login(name, password);
+      props.navigation.navigate('account');
+    } catch (error) {}
+  };
+
+  return (
+    <SafeAreaView style={styles.areaView}>
+      <TouchableOpacity style={styles.returnButton} onPress={goBack}>
+        <Text>Retour</Text>
+      </TouchableOpacity>
+      <View style={styles.card}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.titleText}>Login</Text>
+          <View style={styles.inputContainer}>
+            <Input onChangeText={setName} value={name} label="Nom d'utilisateur" />
+          </View>
+          <View style={styles.inputContainer}>
+            <Input
+              onChangeText={setPassword}
+              value={password}
+              label="Mot de passe"
+              secureTextEntry
+            />
+          </View>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity onPress={tryLogin} disabled={isLoading}>
+              {isLoading ? (
                 <Text style={styles.buttonText}>Se connecter</Text>
-              </TouchableOpacity>
-            </View>
+              ) : (
+                <ActivityIndicator />
+              )}
+            </TouchableOpacity>
           </View>
         </View>
-      </SafeAreaView>
-    );
-  }
-}
+      </View>
+    </SafeAreaView>
+  );
+};
