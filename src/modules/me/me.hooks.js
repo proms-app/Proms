@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import { postLogin } from './me.api';
-import { MyContext } from './me.context';
+import { useContext } from "react";
+import { postLogin } from "./me.api";
+import { MyContext } from "./me.context";
 
 export const useMyStore = () => {
   const [state, setState] = useContext(MyContext);
@@ -8,6 +8,7 @@ export const useMyStore = () => {
   const me = state.me;
 
   const isLoading = state.isLoading;
+  const hasErrored = state.hasErrored;
 
   const setMe = newMe => {
     setState(oldState => ({ ...oldState, me: newMe }));
@@ -29,7 +30,7 @@ export const useMyStore = () => {
       setMe(newMe);
     } catch (error) {
       setHasErrored(true);
-      console.log('Error during login', { error });
+      console.log("Error during login", { error });
     } finally {
       setLoading(false);
     }
@@ -39,6 +40,6 @@ export const useMyStore = () => {
     me,
     login,
     isLoading,
-    hasErrored,
+    hasErrored
   };
 };
