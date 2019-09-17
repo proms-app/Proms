@@ -9,23 +9,25 @@ type PropsType = {
 };
 
 const ChampList = [
-  { title: "Bucque", value: "Abc" },
-  { title: "Nums", value: "000" },
-  { title: "Email", value: "abc@xyz" },
-  { title: "Adresse", value: "Tabagns" }
+  { title: "Bucque", apiValue: "bucque" },
+  { title: "Nums", apiValue: "nums" },
+  { title: "Email", apiValue: "email" },
+  { title: "Adresse", apiValue: "lieu" }
 ];
 
 export const Profile = (props: PropsType) => {
-  const { logout } = useMyStore();
+  const { me, logout } = useMyStore();
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headContainer}>
-        <Text style={styles.headTitle}>NOM Prénom</Text>
+        <Text style={styles.headTitle}>
+          {me.nom} {me.prenom}
+        </Text>
       </View>
       <View style={styles.profileContainer}>
         <View style={styles.userContainer}>
           {ChampList.map(item => {
-            return <UserField title={item.title} value={item.value} />;
+            return <UserField title={item.title} value={me[item.apiValue]} />;
           })}
         </View>
         <View style={styles.modifContainer}>
@@ -41,8 +43,8 @@ export const Profile = (props: PropsType) => {
       <View style={styles.logoutContainer}>
         <TouchableOpacity
           onPress={() => {
-            logout();
             props.navigation.navigate("auth");
+            logout();
           }}
           style={styles.logoutButton}
         >

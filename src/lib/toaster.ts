@@ -1,5 +1,6 @@
 import Toast from "react-native-root-toast";
 
+// docs here https://github.com/magicismight/react-native-root-toast#readme
 export const toaster = (message: string) =>
   Toast.show(message, {
     duration: Toast.durations.SHORT,

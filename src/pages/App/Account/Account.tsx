@@ -1,19 +1,19 @@
 // @flow
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { getUserInfo } from "../../../modules/api";
+import { useMyStore } from "../../../modules/me/me.hooks";
 
 type PropsType = {};
 
 export const Account = (props: PropsType) => {
-  const user = getUserInfo();
+  const { me } = useMyStore();
   return (
     <View style={styles.container}>
       <View style={styles.welcomeContainer}>
-        <Text style={styles.welcomeText}>Sal's {user.bucque}</Text>
+        <Text style={styles.welcomeText}>Sal's {me.bucque}</Text>
       </View>
       <View style={styles.balanceContainer}>
-        <Text style={styles.balanceText}> {user.solde} </Text>
+        <Text style={styles.balanceText}> {me.solde} </Text>
       </View>
     </View>
   );

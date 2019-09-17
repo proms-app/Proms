@@ -14,8 +14,8 @@ export const Home = (props: PropsType) => {
       <Text style={styles.welcome}>Li 213</Text>
       <TouchableOpacity
         onPress={() => {
-          logout();
           props.navigation.navigate("auth");
+          logout();
         }}
       >
         <Text style={{ fontWeight: "bold", color: "green", fontSize: 18 }}>

@@ -14,7 +14,7 @@ const ClemData = {
 const getFakeData = name => {
   switch (name) {
     case "Clement":
-      return ClemData;
+      return Promise.resolve(ClemData);
     default:
       return Promise.reject("LOGIN ERROR");
   }

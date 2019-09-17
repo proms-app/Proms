@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { setItem } from "../../lib/asyncStorage";
 import { postLogin } from "./me.api";
 import { MyContext } from "./me.context";
 
@@ -6,11 +7,11 @@ export const useMyStore = () => {
   const [state, setState] = useContext(MyContext);
 
   const me = state.me;
-
   const isLoading = state.isLoading;
   const hasErrored = state.hasErrored;
 
-  const setMe = newMe => {
+  const setMe = async newMe => {
+    await setItem("user", newMe);
     setState(oldState => ({ ...oldState, me: newMe }));
   };
 
@@ -27,7 +28,7 @@ export const useMyStore = () => {
       setLoading(true);
       setHasErrored(false);
       const newMe = await postLogin(name);
-      setMe(newMe);
+      await setMe(newMe);
     } catch (error) {
       setHasErrored(true);
       console.log("Error during login", { error });
@@ -37,12 +38,13 @@ export const useMyStore = () => {
     }
   };
 
-  const logout = () => {
-    setMe(null);
+  const logout = async () => {
+    await setMe(null);
   };
 
   return {
     me,
+    setMe,
     login,
     logout,
     isLoading,

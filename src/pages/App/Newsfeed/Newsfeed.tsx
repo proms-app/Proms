@@ -21,7 +21,6 @@ type PropsType = {
 export const Newsfeed = (props: PropsType) => {
   const events = getEvents();
   const text = getUser();
-  console.log(text);
   return (
     <ScrollView>
       <NewsfeedSubHeader />
