@@ -1,8 +1,8 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import RootNavigator from './RootNavigation';
-import { MyContextProvider } from './modules/me';
+import RootNavigator from "./RootNavigation";
+import { MyContextProvider } from "./modules/me";
 
 type PropsType = {};
 

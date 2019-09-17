@@ -6859,6 +6859,22 @@ react-native-root-siblings@3.1.7:
     prop-types "^15.6.2"
     static-container "^1.0.0"
 
+react-native-root-siblings@^3.0.0:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/react-native-root-siblings/-/react-native-root-siblings-3.2.3.tgz#df5a1cff3a3a1f433f57320e1cae719f1b15a3f2"
+  integrity sha512-wOCCtKJteaSIW3K++hzhkfdWRikTqjrG34DnhNDVSzKatuNQyFY1fPBD1YFT/3+kxOIUmNsJdiaPMao9QgoZMA==
+  dependencies:
+    prop-types "^15.6.2"
+    static-container "^1.0.0"
+
+react-native-root-toast@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-root-toast/-/react-native-root-toast-3.1.2.tgz#c8a1944f101c0768045202a276f46f9d710181a2"
+  integrity sha512-68OhAjRMwUsNeKC7GE5Sgems6dXY2VzuTsNe4hRbbN23V/bFeItnJAvgV4lib4hsCvO4KZjUtUqRY/nQd8s/7Q==
+  dependencies:
+    prop-types "^15.5.10"
+    react-native-root-siblings "^3.0.0"
+
 react-native-safe-area-view@0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.11.0.tgz#4f3dda43c2bace37965e7c6aef5fc83d4f19d174"

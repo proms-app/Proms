@@ -1,13 +1,8 @@
 // @flow
-import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
+import React from "react";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { UserField } from "./components/userField";
+import { useMyStore } from "../../../modules/me/me.hooks";
 
 type PropsType = {
   navigation: NavigationType;
@@ -19,45 +14,46 @@ const ChampList = [
   { title: "Email", value: "abc@xyz" },
   { title: "Adresse", value: "Tabagns" }
 ];
-export default class Profile extends Component<PropsType> {
-  render() {
-    return (
-      <View style={styles.mainContainer}>
-        <View style={styles.headContainer}>
-          <Text style={styles.headTitle}>NOM Prénom</Text>
+
+export const Profile = (props: PropsType) => {
+  const { logout } = useMyStore();
+  return (
+    <View style={styles.mainContainer}>
+      <View style={styles.headContainer}>
+        <Text style={styles.headTitle}>NOM Prénom</Text>
+      </View>
+      <View style={styles.profileContainer}>
+        <View style={styles.userContainer}>
+          {ChampList.map(item => {
+            return <UserField title={item.title} value={item.value} />;
+          })}
         </View>
-        <View style={styles.profileContainer}>
-          <View style={styles.userContainer}>
-            {ChampList.map(item => {
-              return <UserField title={item.title} value={item.value} />;
-            })}
-          </View>
-          <View style={styles.modifContainer}>
-            <TouchableOpacity
-              onPress={() => {
-                this.props.navigation.navigate("profilemodif");
-              }}
-            >
-              <Text style={styles.modifButtonText}>Modifier</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View style={styles.logoutContainer}>
+        <View style={styles.modifContainer}>
           <TouchableOpacity
             onPress={() => {
-              this.props.navigation.navigate("auth");
+              props.navigation.navigate("profilemodif");
             }}
-            style={styles.logoutButton}
           >
-            <Text style={{ fontWeight: "bold", color: "white", fontSize: 18 }}>
-              Se déconnecter
-            </Text>
+            <Text style={styles.modifButtonText}>Modifier</Text>
           </TouchableOpacity>
         </View>
       </View>
-    );
-  }
-}
+      <View style={styles.logoutContainer}>
+        <TouchableOpacity
+          onPress={() => {
+            logout();
+            props.navigation.navigate("auth");
+          }}
+          style={styles.logoutButton}
+        >
+          <Text style={{ fontWeight: "bold", color: "white", fontSize: 18 }}>
+            Se déconnecter
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   mainContainer: {

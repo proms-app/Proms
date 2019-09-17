@@ -6,9 +6,9 @@ import {
   TouchableOpacity,
   ActivityIndicator
 } from "react-native";
-
-import { Input } from "../../components/Input";
+import { toaster } from "../../lib/toaster";
 import SafeAreaView from "react-native-safe-area-view";
+import { Input } from "../../components/Input";
 import { useMyStore } from "../../modules/me";
 
 type PropsType = {
@@ -70,7 +70,9 @@ export const SignIn = props => {
     try {
       await login(name, password);
       props.navigation.navigate("account");
-    } catch (error) {}
+    } catch (error) {
+      toaster("Le login a échoué");
+    }
   };
 
   return (

@@ -31,14 +31,20 @@ export const useMyStore = () => {
     } catch (error) {
       setHasErrored(true);
       console.log("Error during login", { error });
+      throw error;
     } finally {
       setLoading(false);
     }
   };
 
+  const logout = () => {
+    setMe(null);
+  };
+
   return {
     me,
     login,
+    logout,
     isLoading,
     hasErrored
   };
