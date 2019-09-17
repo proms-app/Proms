@@ -1,5 +1,6 @@
-import React from 'react';
-import { TextField } from 'react-native-material-textfield';
+import React from "react";
+import { TextField } from "react-native-material-textfield";
+import appStyle from "../../style/appStyle";
 
 type PropsType = {
   label: string;
@@ -12,10 +13,10 @@ export const Input = (props: PropsType) => {
   return (
     <TextField
       {...props}
-      label={props.label || ''}
+      label={props.label || ""}
       autoCapitalize="none"
-      errorColor="red"
-      textColor="white"
+      errorColor={appStyle.color.error}
+      textColor={appStyle.color.primary}
       value={props.value}
       onChangeText={props.onChangeText}
     />
