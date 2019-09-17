@@ -1,1 +1,1 @@
-export { default } from './Account.container';
+export { Account } from "./Account";
