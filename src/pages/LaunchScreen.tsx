@@ -1,35 +1,36 @@
 //@flow
-import React, { useState, useEffect } from "react";
-import { ActivityIndicator, StatusBar, Text } from "react-native";
-import { getItem } from "../lib/asyncStorage";
 
-import CenteredPage from "components/CenteredPage";
-import { useMyStore } from "../modules/me/me.hooks";
+import { ActivityIndicator, AsyncStorage, StatusBar, Text, Image, AppRegistry } from 'react-native';
+import React from 'react';
+import CenteredPage from 'components/CenteredPage';
 
 type PropsType = {
   navigation: NavigationType;
 };
 
-export const AuthLoadingScreen = (props: PropsType) => {
-  const { setMe } = useMyStore();
+class AuthLoadingScreen extends React.Component<PropsType> {
+  constructor(props: PropsType) {
+    super(props);
+    this.bootstrapAsync();
+  }
 
-  // get async storage on app launch
-  useEffect(() => {
-    const getSavedUser = async () => {
-      const savedMe = await getItem("user", "object");
-      await setMe(savedMe);
-      savedMe
-        ? props.navigation.navigate("app")
-        : props.navigation.navigate("auth");
-    };
-    getSavedUser();
-  }, []);
+  bootstrapAsync = async () => {
+    const userToken = await AsyncStorage.getItem('userToken');
 
-  return (
-    <CenteredPage>
-      <ActivityIndicator />
-      <Text>Chargement des données stockées dans le mobile</Text>
-      <StatusBar barStyle="default" />
-    </CenteredPage>
-  );
-};
+    this.props.navigation.navigate(userToken ? 'auth' : 'app');
+  };
+
+  render() {
+    return (
+      <CenteredPage>
+        <ActivityIndicator />
+        <Text>Loading</Text>
+        <StatusBar barStyle="default" />
+      </CenteredPage>
+    );
+  }
+}
+
+AppRegistry.registerComponent('AuthLoadingScreen', () => AuthLoadingScreen);
+
+export default AuthLoadingScreen;
