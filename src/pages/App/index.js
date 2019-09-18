@@ -1,84 +1,81 @@
-import React from "react";
-import {
-  createStackNavigator,
-  createBottomTabNavigator
-} from "react-navigation";
+import React from 'react';
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import {
   defaultTopNavigationOptions,
-  defaultBottomNavigationOptions
-} from "../../style/defaultNavigationOptions";
-import { Home } from "./Home";
-import { profileNavigator } from "./Profile/Profile.navigator";
-import { Newsfeed } from "./Newsfeed";
-import { Account } from "./Account";
-import { renderTabIcon } from "../../components/Icon";
+  defaultBottomNavigationOptions,
+} from '../../style/defaultNavigationOptions';
+import Home from './Home';
+import { profileNavigator } from './Profile/Profile.navigator';
+import Newsfeed from './Newsfeed';
+import Account from './Account';
+import { renderTabIcon } from '../../components/Icon';
 
 const TabNavigator = createBottomTabNavigator(
   {
     account: {
       screen: Account,
       navigationOptions: {
-        title: "Compte",
-        tabBarIcon: ({ tintColor }) => renderTabIcon("assignment", tintColor)
-      }
+        title: 'Compte',
+        tabBarIcon: ({ tintColor }) => renderTabIcon('assignment', tintColor),
+      },
     },
     newsfeed: {
       screen: Newsfeed,
       navigationOptions: {
-        title: "Events",
-        tabBarIcon: ({ tintColor }) => renderTabIcon("alarm", tintColor)
-      }
+        title: 'Events',
+        tabBarIcon: ({ tintColor }) => renderTabIcon('alarm', tintColor),
+      },
     },
     home: {
       screen: Home,
       navigationOptions: {
-        title: "Home",
-        tabBarIcon: ({ tintColor }) => renderTabIcon("home", tintColor)
-      }
+        title: 'Home',
+        tabBarIcon: ({ tintColor }) => renderTabIcon('home', tintColor),
+      },
     },
     profile: {
       screen: profileNavigator,
       navigationOptions: {
-        title: "Profile",
-        tabBarIcon: ({ tintColor }) => renderTabIcon("face", tintColor)
-      }
-    }
+        title: 'Profile',
+        tabBarIcon: ({ tintColor }) => renderTabIcon('face', tintColor),
+      },
+    },
   },
   {
-    initialRouteName: "account",
+    initialRouteName: 'account',
     tabBarOptions: {
-      ...defaultBottomNavigationOptions
-    }
+      ...defaultBottomNavigationOptions,
+    },
   }
 );
 
 const CardNavigator = createStackNavigator(
   {
     main: {
-      screen: TabNavigator
-    }
+      screen: TabNavigator,
+    },
   },
   {
-    initialRouteName: "main",
+    initialRouteName: 'main',
     navigationOptions: {
-      ...defaultTopNavigationOptions
-    }
+      ...defaultTopNavigationOptions,
+    },
   }
 );
 
 const ModalNavigator = createStackNavigator(
   {
     main: {
-      screen: CardNavigator
-    }
+      screen: CardNavigator,
+    },
   },
   {
-    initialRouteName: "main",
-    mode: "modal",
+    initialRouteName: 'main',
+    mode: 'modal',
     navigationOptions: {
-      header: null
-    }
+      header: null,
+    },
   }
 );
 

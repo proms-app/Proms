@@ -1,21 +1,21 @@
 // @flow
-import { createSwitchNavigator } from "react-navigation";
+import { createSwitchNavigator } from 'react-navigation';
 
-import App from "./pages/App";
-import { AuthLoadingScreen } from "./pages/LaunchScreen";
-import Auth from "./pages/Auth";
-import SignUp from "./pages/SignUp";
-import { SignIn } from "./pages/SignIn";
+import App from './pages/App';
+import LaunchScreen from './pages/LaunchScreen';
+import Auth from './pages/Auth';
+import SignUp from './pages/SignUp';
+import { SignIn } from './pages/SignIn';
 
 export default createSwitchNavigator(
   {
-    launch: AuthLoadingScreen,
+    launch: LaunchScreen,
     app: App,
     auth: Auth,
     signUp: SignUp,
-    signIn: SignIn
+    signIn: SignIn,
   },
   {
-    initialRouteName: "launch"
+    initialRouteName: 'launch',
   }
 );

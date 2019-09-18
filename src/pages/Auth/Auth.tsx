@@ -1,7 +1,7 @@
 // @flow
-import { Button } from "react-native";
-import React from "react";
-import CenteredPage from "components/CenteredPage";
+import { Button } from 'react-native';
+import React from 'react';
+import CenteredPage from 'components/CenteredPage';
 
 type PropsType = {
   navigation: NavigationType;
@@ -9,10 +9,10 @@ type PropsType = {
 
 class FirstPage extends React.Component<PropsType> {
   redirectToSignInPage = () => {
-    this.props.navigation.navigate("signIn");
+    this.props.navigation.navigate('signIn');
   };
   redirectToSignUpPage = () => {
-    this.props.navigation.navigate("signUp");
+    this.props.navigation.navigate('signUp');
   };
 
   render() {
