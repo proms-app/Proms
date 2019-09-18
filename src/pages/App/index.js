@@ -5,7 +5,6 @@ import {
   defaultTopNavigationOptions,
   defaultBottomNavigationOptions,
 } from '../../style/defaultNavigationOptions';
-import Home from './Home';
 import { profileNavigator } from './Profile/Profile.navigator';
 import Newsfeed from './Newsfeed';
 import Account from './Account';
@@ -25,13 +24,6 @@ const TabNavigator = createBottomTabNavigator(
       navigationOptions: {
         title: 'Events',
         tabBarIcon: ({ tintColor }) => renderTabIcon('alarm', tintColor),
-      },
-    },
-    home: {
-      screen: Home,
-      navigationOptions: {
-        title: 'Home',
-        tabBarIcon: ({ tintColor }) => renderTabIcon('home', tintColor),
       },
     },
     profile: {
