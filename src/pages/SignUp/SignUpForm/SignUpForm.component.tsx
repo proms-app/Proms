@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   buttonContainer: {
-    marginTop: 55,
+    marginTop: 20,
     alignItems: 'center',
   },
 });

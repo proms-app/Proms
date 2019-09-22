@@ -13,14 +13,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#68E8B7'
   },
-  returnButton: {
-    marginTop: 10,
-    marginHorizontal: 15,
-    color: 'white'
-  },
   card: {
     flex: 1,
-    borderRadius: 5,
+    borderRadius: 10,
     marginHorizontal: 30,
     marginVertical: 150,
     backgroundColor: 'white',
@@ -31,7 +26,6 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
   },
   titleContainer: {
-    flexDirection: 'column',
     marginTop: 30,
     marginHorizontal: 30,
   },
@@ -39,15 +33,34 @@ const styles = StyleSheet.create({
     color: '#000',
     fontSize: 30,
   },
-  inputContainer: {},
   buttonText: {
-    color: '#80FFAA',
-    fontSize: 25,
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold'
   },
   buttonContainer: {
-    marginTop: 40,
+    marginTop: 20,
     alignItems: 'center',
+    justifyContent: 'center',
+    height: 40,
+    backgroundColor: '#80FFAA',
+    borderRadius: 5
   },
+  textContainer: {
+    marginTop: 20,
+    alignItems: 'center'
+  },
+  textStyle: {
+    fontSize: 15
+  },
+  buttonContainer2: {
+    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 40,
+    backgroundColor: '#68E86F',
+    borderRadius: 5
+  }
 });
 export class SignIn extends Component<PropsType> {
   goBack = () => {
@@ -56,29 +69,33 @@ export class SignIn extends Component<PropsType> {
   login = () => {
     this.props.navigation.navigate('account');
   };
+  signUp = () => {
+    this.props.navigation.navigate('signUp')
+  }
 
   render() {
     return (
       <SafeAreaView style={styles.areaView}>
-        <TouchableOpacity
-        style={styles.returnButton} 
-        onPress={this.goBack}>
-          <Text>Retour</Text>
-        </TouchableOpacity>
         <View style={styles.card}>
           <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>Login</Text>
+            <Text style={styles.titleText}>Hello!</Text>
             <View style={styles.inputContainer}>
               <Input label="Nom d'utilisateur" />
             </View>
             <View style={styles.inputContainer}>
               <Input label="Mot de passe" secureTextEntry />
             </View>
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity onPress={this.login}>
+              <TouchableOpacity style={styles.buttonContainer}
+              onPress={this.login}>
                 <Text style={styles.buttonText}>Se connecter</Text>
               </TouchableOpacity>
+            <View style={styles.textContainer}>
+              <Text style={styles.textStyle}>OU</Text>
             </View>
+            <TouchableOpacity style={styles.buttonContainer2}
+              onPress={this.signUp}>
+                <Text style={styles.buttonText}>Créer un compte</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </SafeAreaView>

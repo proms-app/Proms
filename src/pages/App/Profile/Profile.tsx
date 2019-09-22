@@ -38,7 +38,7 @@ export default class Profile extends Component<PropsType> {
         <View style={styles.logoutContainer}>
           <TouchableOpacity
             onPress={() => {
-              this.props.navigation.navigate('auth');
+              this.props.navigation.navigate('signIn');
             }}
             style={styles.logoutButton}
           >
