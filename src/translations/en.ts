@@ -1,19 +1,15 @@
 export default {
-  loading: 'loading',
+  loading: "loading",
   account: {
-    iconName: 'Account',
-    tabName: 'My Account',
-  },
-  home: {
-    iconName: 'Home',
-    tabName: 'Home',
+    iconName: "Account",
+    tabName: "My Account"
   },
   profile: {
-    iconName: 'Profile',
-    tabName: 'My Profile',
+    iconName: "Profile",
+    tabName: "My Profile"
   },
   newsfeed: {
-    iconName: 'News',
-    tabName: 'Newsfeed',
-  },
+    iconName: "News",
+    tabName: "Newsfeed"
+  }
 };

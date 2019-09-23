@@ -1,19 +1,15 @@
 export default {
-  loading: 'En chargement',
+  loading: "En chargement",
   account: {
-    iconName: 'Compte',
-    tabName: 'Mon compte',
-  },
-  home: {
-    iconName: 'Accueil',
-    tabName: "Page d'accueil",
+    iconName: "Compte",
+    tabName: "Mon compte"
   },
   profile: {
-    iconName: 'Profil',
-    tabName: 'Monn profile',
+    iconName: "Profil",
+    tabName: "Monn profile"
   },
   newsfeed: {
-    iconName: 'News',
-    tabName: 'Nouveautés',
-  },
+    iconName: "News",
+    tabName: "Nouveautés"
+  }
 };
