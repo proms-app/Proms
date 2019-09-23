@@ -43,7 +43,7 @@ export const Profile = (props: PropsType) => {
       <View style={styles.logoutContainer}>
         <TouchableOpacity
           onPress={() => {
-            props.navigation.navigate("auth");
+            props.navigation.navigate("signIn");
             logout();
           }}
           style={styles.logoutButton}

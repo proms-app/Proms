@@ -20,7 +20,7 @@ export const AuthLoadingScreen = (props: PropsType) => {
       await setMe(savedMe);
       savedMe
         ? props.navigation.navigate("app")
-        : props.navigation.navigate("auth");
+        : props.navigation.navigate("signIn");
     };
     getSavedUser();
   }, []);
