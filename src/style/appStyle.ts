@@ -18,18 +18,20 @@ const appStyle = {
     standardSubtitle: 15,
   },
   borderRadius: {
-    cards: 4,
+    cards: 12,
   },
   borderWidth: {
     cards: 1,
   },
   height: {
-    cards: 80,
+    cards: 120,
   },
   font: {
     size: {
       itemTitle: 16,
       description: 10,
+      eventDate: 25,
+      eventDescription: 20
     },
   },
 };
