@@ -4,7 +4,7 @@ import { View, TouchableOpacity, Text, StyleSheet, Button} from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
 import { SignUpForm } from './SignUpForm';
 import { SignUpFormType } from './SignUp.type.ts';
-import {returnButton} from '../../components/ReturnButton';
+import Icon from 'react-native-vector-icons/AntDesign'
 
 type PropsType = {
   navigation: NavigationType;
@@ -15,10 +15,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#68E8B7'
   },
-  returnText: {
-    marginTop: 10,
-    marginHorizontal: 15,
-    color: 'white',
+  returnButton: {
+    width: 50,
+    marginLeft: 15
   },
   card: {
     flex: 1,
@@ -45,10 +44,14 @@ export class SignUp extends Component<PropsType> {
   render() {
     return (
       <SafeAreaView style={styles.areaView}>
-        <TouchableOpacity
-          onPress={this.goBack}>
-          <Text>Retour</Text>
-          </TouchableOpacity>
+        <View style={styles.returnButton}>
+          <Icon.Button
+            name='leftcircleo'
+            color='white'
+            backgroundColor='#68E8B7'
+            onPress={this.goBack}>     
+          </Icon.Button>
+        </View>
         <View style={styles.card}>
           <SignUpForm onSubmit={this.onCreateAccountPress} />
         </View>
