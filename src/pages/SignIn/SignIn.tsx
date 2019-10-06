@@ -9,6 +9,7 @@ import {
 import { toaster } from "../../lib/toaster";
 import SafeAreaView from "react-native-safe-area-view";
 import { Input } from "../../components/Input";
+import { ScreenFitCard } from "../../components/ScreenFitCard";
 import { useMyStore } from "../../modules/me";
 
 import appStyle from "../../style/appStyle";
@@ -20,19 +21,7 @@ type PropsType = {
 const styles = StyleSheet.create({
   areaView: {
     flex: 1,
-    backgroundColor: "#68E8B7"
-  },
-  card: {
-    flex: 1,
-    borderRadius: 10,
-    marginHorizontal: 30,
-    marginVertical: 150,
-    backgroundColor: "white",
-    opacity: 0.9,
-    elevation: 1,
-    shadowColor: "#000",
-    shadowOpacity: 0.7,
-    shadowRadius: 10
+    backgroundColor: appStyle.color.primary
   },
   titleContainer: {
     marginTop: 30,
@@ -92,7 +81,7 @@ export const SignIn = props => {
 
   return (
     <SafeAreaView style={styles.areaView}>
-      <View style={styles.card}>
+      <ScreenFitCard>
         <View style={styles.titleContainer}>
           <Text style={styles.titleText}>Hello!</Text>
           <View>
@@ -126,7 +115,7 @@ export const SignIn = props => {
             <Text style={styles.buttonText}>Créer un compte</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </ScreenFitCard>
     </SafeAreaView>
   );
 };

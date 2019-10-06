@@ -9,6 +9,8 @@ type PropsType = {
 
 const styles = StyleSheet.create({
   returnButton: {
+    position: "absolute",
+    top: appStyle.margins.statusBar,
     justifyContent: "center",
     alignItems: "center",
     height: appStyle.header.containerSize,

@@ -15,9 +15,9 @@ const appStyle = {
     error: color.red
   },
   margins: {
-    betweenCards: 10,
-    standardTitle: 5,
-    standardSubtitle: 15
+    statusBar: 15,
+    small: 10,
+    tiny: 5
   },
   borderRadius: {
     cards: 4
@@ -35,8 +35,8 @@ const appStyle = {
     }
   },
   header: {
-    iconSize: 30,
-    containerSize: 60
+    iconSize: 25,
+    containerSize: 50
   }
 };
 

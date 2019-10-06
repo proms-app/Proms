@@ -17,21 +17,18 @@ const TabNavigator = createBottomTabNavigator(
     account: {
       screen: Account,
       navigationOptions: {
-        title: "Compte",
         tabBarIcon: ({ tintColor }) => renderTabIcon("assignment", tintColor)
       }
     },
     newsfeed: {
       screen: Newsfeed,
       navigationOptions: {
-        title: "Events",
         tabBarIcon: ({ tintColor }) => renderTabIcon("alarm", tintColor)
       }
     },
     profile: {
       screen: profileNavigator,
       navigationOptions: {
-        title: "Profile",
         tabBarIcon: ({ tintColor }) => renderTabIcon("face", tintColor)
       }
     }

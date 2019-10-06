@@ -1,7 +1,7 @@
 // @flow
-import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import appStyle from '../../style/appStyle';
+import React from "react";
+import { View, StyleSheet, Text } from "react-native";
+import appStyle from "../../style/appStyle";
 
 type PropsType = {
   event: {
@@ -16,10 +16,10 @@ type PropsType = {
 
 class EventCard extends React.Component<PropsType> {
   renderAvailablePeople = (number: number) => {
-    return <Text style={{ color: 'white' }}> {number} pers</Text>;
+    return <Text style={{ color: "white" }}> {number} pers</Text>;
   };
   render() {
-    const { title, date, location, subscriptions, description } = this.props.event;
+    const { title, date, subscriptions, description } = this.props.event;
     return (
       <View style={styles.wrapper}>
         <View style={styles.topWrapper}>
@@ -50,59 +50,59 @@ const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: appStyle.color.secondary,
     height: appStyle.height.cards,
-    justifyContent: 'center',
+    justifyContent: "center",
     borderRadius: appStyle.borderRadius.cards,
     borderWidth: appStyle.borderWidth.cards,
     borderColor: appStyle.color.border,
-    marginTop: appStyle.margins.betweenCards,
+    marginTop: appStyle.margins.small
   },
   subWrapper: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: "row"
   },
   topWrapper: {
     flex: 1,
     backgroundColor: appStyle.color.lightPrimary,
-    flexDirection: 'row',
+    flexDirection: "row"
   },
   dateWrapper: {
     flex: 3,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
   eventIconWrapper: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
   subscriptionsWrapper: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: appStyle.color.lightPrimary,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: appStyle.color.lightPrimary
   },
   fakeIcon: {
     backgroundColor: appStyle.color.primary,
     width: 10,
     height: 10,
-    borderRadius: 5,
+    borderRadius: 5
   },
   titleWrapper: {
     flex: 3,
-    justifyContent: 'center',
-    marginLeft: appStyle.margins.standardTitle,
+    justifyContent: "center",
+    marginLeft: appStyle.margins.tiny
   },
   titleText: {
     fontSize: appStyle.font.size.itemTitle,
-    color: appStyle.color.primary,
+    color: appStyle.color.primary
   },
   descriptionWrapper: {
     flex: 5,
-    justifyContent: 'center',
+    justifyContent: "center"
   },
   descriptionText: {
-    fontSize: appStyle.font.size.description,
-  },
+    fontSize: appStyle.font.size.description
+  }
 });
 
 export default EventCard;

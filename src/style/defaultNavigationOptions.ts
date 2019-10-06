@@ -2,14 +2,10 @@
 import appStyle from "../style/appStyle";
 
 export const defaultTopNavigationOptions = {
+  headerMode: "none",
   headerStyle: {
+    height: appStyle.margins.statusBar,
     backgroundColor: appStyle.color.primary
-  },
-  headerTitleStyle: {
-    flex: 1,
-    textAlign: "center",
-    color: "white",
-    fontSize: 20
   }
 };
 
