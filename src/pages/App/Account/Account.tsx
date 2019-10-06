@@ -2,7 +2,7 @@
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, Dimensions } from "react-native";
 import { useMyStore } from "../../../modules/me/me.hooks";
-import { Svg, Path } from "react-native-svg";
+import { Svg, Path, LinearGradient, Defs, Stop } from "react-native-svg";
 import * as shape from "d3-shape";
 import { scaleTime, scaleLinear } from "d3-scale";
 
@@ -14,6 +14,7 @@ const d3 = {
 
 const { width } = Dimensions.get("window");
 const height = 200;
+const verticalPadding = 5; 
 
 const data = [
   { x: new Date(2019, 9, 1), y: 0 },
@@ -29,7 +30,7 @@ const scaleX = scaleTime()
   .range([0, width]);
 const scaleY = scaleLinear()
   .domain([0, 300])
-  .range([height, 0]);
+  .range([height - verticalPadding, verticalPadding]);
 const line = d3.shape
   .line()
   .x(d => scaleX(d.x))
@@ -48,7 +49,14 @@ export const Account = (props: PropsType) => {
       </View>
       <View style={styles.chartContainer}>
         <Svg {...{ width, height }}>
-          <Path d={line} />
+          <Defs>
+            <LinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='gradient'>
+              <Stop stopColor="#DAF5ED" offset='0%' />
+              <Stop stopColor="#F5FCFF" offset='100%' />
+            </LinearGradient>
+          </Defs>
+          <Path d={line} fill='transparent' stroke='#8AF285' strokeWidth={5}/>
+          <Path d={`${line} L ${width} ${height} L 0 ${height}`} fill='url(#gradient)'/>
         </Svg>
       </View>
     </SafeAreaView>
