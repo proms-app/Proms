@@ -1,9 +1,9 @@
 // @flow
 import React from "react";
 import { ScrollView } from "react-native";
-import EventCard from "../../../components/EventCard";
-import NewsfeedSubHeader from "./components/NewsfeedSubHeader";
-import { getEvents, getUser } from "../../../modules/api";
+import { EventCard } from "../../../components/EventCard";
+import { NewsfeedSubHeader } from "./components/NewsfeedSubHeader";
+import { getEvents } from "../../../modules/api";
 
 type EventType = {
   id: string;
@@ -20,7 +20,6 @@ type PropsType = {
 
 export const Newsfeed = (props: PropsType) => {
   const events = getEvents();
-  const text = getUser();
   return (
     <ScrollView>
       <NewsfeedSubHeader />

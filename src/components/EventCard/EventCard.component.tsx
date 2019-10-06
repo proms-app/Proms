@@ -3,6 +3,7 @@ import React from "react";
 import { View, StyleSheet, Text } from "react-native";
 import appStyle from "../../style/appStyle";
 
+const CARD_HEIGHT = 120;
 type PropsType = {
   event: {
     id: string;
@@ -14,95 +15,62 @@ type PropsType = {
   };
 };
 
-class EventCard extends React.Component<PropsType> {
+export class EventCard extends React.Component<PropsType> {
   renderAvailablePeople = (number: number) => {
     return <Text style={{ color: "white" }}> {number} pers</Text>;
   };
   render() {
-    const { title, date, subscriptions, description } = this.props.event;
+    const { date, description } = this.props.event;
     return (
       <View style={styles.wrapper}>
-        <View style={styles.topWrapper}>
-          <View style={styles.titleWrapper}>
-            <Text style={styles.titleText}>{title}</Text>
-          </View>
-          <View style={styles.subscriptionsWrapper}>
-            {this.renderAvailablePeople(subscriptions)}
-          </View>
+        <View style={styles.dateContainer}>
+          <Text style={styles.dateText}>{date}</Text>
         </View>
-        <View style={styles.subWrapper}>
-          <View style={styles.eventIconWrapper}>
-            <View style={styles.fakeIcon} />
-          </View>
-          <View style={styles.descriptionWrapper}>
-            <Text style={styles.descriptionText}>{description}</Text>
-          </View>
-          <View style={styles.dateWrapper}>
-            <Text>{date}</Text>
-          </View>
+        <View style={styles.eventContainer}>
+          <Text style={styles.descriptionText}>{description}</Text>
         </View>
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: appStyle.color.secondary,
-    height: appStyle.height.cards,
+    height: CARD_HEIGHT,
     justifyContent: "center",
-    borderRadius: appStyle.borderRadius.cards,
-    borderWidth: appStyle.borderWidth.cards,
-    borderColor: appStyle.color.border,
-    marginTop: appStyle.margins.small
+    borderRadius: appStyle.borderRadius.large,
+    borderWidth: 1,
+    borderColor: appStyle.color.primary,
+    marginTop: appStyle.margins.small,
+    elevation: 1,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 10,
+    marginHorizontal: 10,
+    flexDirection: "row",
+    flex: 1
   },
-  subWrapper: {
-    flex: 1,
-    flexDirection: "row"
-  },
-  topWrapper: {
-    flex: 1,
-    backgroundColor: appStyle.color.lightPrimary,
-    flexDirection: "row"
-  },
-  dateWrapper: {
+  eventContainer: {
     flex: 3,
-    justifyContent: "center",
-    alignItems: "center"
+    flexDirection: "row"
   },
-  eventIconWrapper: {
+  dateContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  subscriptionsWrapper: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: appStyle.color.lightPrimary
-  },
-  fakeIcon: {
     backgroundColor: appStyle.color.primary,
-    width: 10,
-    height: 10,
-    borderRadius: 5
-  },
-  titleWrapper: {
-    flex: 3,
+    flexDirection: "row",
+    borderRadius: appStyle.borderRadius.large,
+    marginHorizontal: 5,
+    marginVertical: 5,
     justifyContent: "center",
-    marginLeft: appStyle.margins.tiny
+    alignItems: "center"
   },
-  titleText: {
-    fontSize: appStyle.font.size.itemTitle,
-    color: appStyle.color.primary
-  },
-  descriptionWrapper: {
-    flex: 5,
-    justifyContent: "center"
+  dateText: {
+    fontSize: appStyle.font.size.eventDate,
+    fontWeight: "bold",
+    color: "white"
   },
   descriptionText: {
-    fontSize: appStyle.font.size.description
+    fontSize: appStyle.font.size.eventDescription,
+    fontWeight: "bold"
   }
 });
-
-export default EventCard;

@@ -1,1 +1,1 @@
-export { default } from './EventCard.component';
+export { EventCard } from "./EventCard.component";
