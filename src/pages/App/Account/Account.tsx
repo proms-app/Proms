@@ -2,13 +2,12 @@
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, Dimensions } from "react-native";
 import { useMyStore } from "../../../modules/me/me.hooks";
-import Svg from "react-native-svg";
+import { Svg, Path } from "react-native-svg";
 import * as shape from "d3-shape";
 import { scaleTime, scaleLinear } from "d3-scale";
 
 type PropsType = {};
 
-const { Path } = Svg;
 const d3 = {
   shape
 };
