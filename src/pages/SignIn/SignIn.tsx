@@ -11,6 +11,8 @@ import SafeAreaView from "react-native-safe-area-view";
 import { Input } from "../../components/Input";
 import { useMyStore } from "../../modules/me";
 
+import appStyle from "../../style/appStyle";
+
 type PropsType = {
   navigation: NavigationType;
 };
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     height: 40,
-    backgroundColor: "#80FFAA",
+    backgroundColor: appStyle.color.primary,
     borderRadius: 5
   },
   textContainer: {
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     height: 40,
-    backgroundColor: "#68E86F",
+    backgroundColor: appStyle.color.primary,
     borderRadius: 5
   }
 });

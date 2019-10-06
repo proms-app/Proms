@@ -1,12 +1,23 @@
 import React from "react";
-import { Icon } from "../../components/Icon";
+import { TouchableOpacity, StyleSheet } from "react-native";
+import Icon from "react-native-vector-icons/AntDesign";
+import appStyle from "../../style/appStyle";
 
-export const ReturnButton = props => (
-  <Icon.Button
-    name="leftcircleo"
-    color="white"
-    onPress={props.navigation.goBack()}
-  >
-    Retour
-  </Icon.Button>
+type PropsType = {
+  onPress: Function;
+};
+
+const styles = StyleSheet.create({
+  returnButton: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: appStyle.header.containerSize,
+    width: appStyle.header.containerSize
+  }
+});
+
+export const ReturnButton = (props: PropsType) => (
+  <TouchableOpacity style={styles.returnButton} onPress={props.onPress}>
+    <Icon size={appStyle.header.iconSize} name="leftcircleo" color="white" />
+  </TouchableOpacity>
 );

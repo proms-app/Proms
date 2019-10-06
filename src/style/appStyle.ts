@@ -1,5 +1,5 @@
 const color = {
-  green: "#68E8B7",
+  green: "#80FFAA",
   lightGreen: "#A3FFC8",
   white: "rgb(255,255,255)",
   red: "rgb(210,20,20)"
@@ -33,6 +33,10 @@ const appStyle = {
       itemTitle: 16,
       description: 10
     }
+  },
+  header: {
+    iconSize: 30,
+    containerSize: 60
   }
 };
 

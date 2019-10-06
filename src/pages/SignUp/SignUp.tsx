@@ -1,9 +1,11 @@
 // @flow
 import React, { Component } from "react";
-import { View, TouchableOpacity, Text, StyleSheet, Button } from "react-native";
+import { View, StyleSheet } from "react-native";
 import SafeAreaView from "react-native-safe-area-view";
 import { SignUpForm } from "./SignUpForm";
 import { SignUpFormType } from "./SignUp.type.ts";
+import { ReturnButton } from "../../components/returnButton/ReturnButton";
+import appStyle from "../../style/appStyle";
 
 type PropsType = {
   navigation: NavigationType;
@@ -14,17 +16,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#68E8B7"
   },
-  returnText: {
-    marginTop: 10,
-    marginHorizontal: 15,
-    color: "white"
-  },
   card: {
     flex: 1,
     borderRadius: 10,
     marginHorizontal: 30,
     marginVertical: 120,
-    backgroundColor: "white",
+    backgroundColor: appStyle.color.secondary,
     opacity: 0.9,
     elevation: 1,
     shadowColor: "#000",
@@ -44,9 +41,7 @@ export class SignUp extends Component<PropsType> {
   render() {
     return (
       <SafeAreaView style={styles.areaView}>
-        <TouchableOpacity onPress={this.goBack}>
-          <Text>Retour</Text>
-        </TouchableOpacity>
+        <ReturnButton />
         <View style={styles.card}>
           <SignUpForm onSubmit={this.onCreateAccountPress} />
         </View>
