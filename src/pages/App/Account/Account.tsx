@@ -1,7 +1,8 @@
 // @flow
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Dimensions } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Dimensions, ScrollView } from "react-native";
 import { useMyStore } from "../../../modules/me/me.hooks";
+import { OperationLine } from "../../../components/OperationLine/OperationLine";
 import { Svg, Path, LinearGradient, Defs, Stop } from "react-native-svg";
 import * as shape from "d3-shape";
 import { scaleTime, scaleLinear } from "d3-scale";
@@ -13,7 +14,7 @@ const d3 = {
 };
 
 const { width } = Dimensions.get("window");
-const height = 200;
+const height = 140;
 const verticalPadding = 5; 
 
 const data = [
@@ -42,10 +43,10 @@ export const Account = (props: PropsType) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.welcomeContainer}>
-        <Text style={styles.welcomeText}>Sal's {me.bucque}</Text>
+        <Text style={styles.welcomeText}>Sal's {me.bucque}!</Text>
       </View>
       <View style={styles.balanceContainer}>
-        <Text style={styles.balanceText}>{me.solde}</Text>
+        <Text style={styles.balanceText}>{me.solde}€</Text>
       </View>
       <View style={styles.chartContainer}>
         <Svg {...{ width, height }}>
@@ -59,6 +60,12 @@ export const Account = (props: PropsType) => {
           <Path d={`${line} L ${width} ${height} L 0 ${height}`} fill='url(#gradient)'/>
         </Svg>
       </View>
+      <ScrollView style = {styles.scrollContainer}>
+        <OperationLine operation='Wix de proms' date='28 septembre 2019' amount='-100€'/>
+        <OperationLine operation='Top-up by Lydia' date='10 août 2019' amount='+80€'/>
+        <OperationLine operation='Cotiz 2018-2019' date='1er Juin 2019' amount='-90€'/>
+        <OperationLine operation='Fignoss 2018' date='23 Novembre 2018' amount='-122,5€'/>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -69,24 +76,28 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5FCFF"
   },
   welcomeText: {
-    fontSize: 40,
-    textAlign: "center",
-    fontWeight: "600"
+    fontSize: 20,
+    fontWeight: "500"
   },
   welcomeContainer: {
-    marginTop: 10,
-    flex: 1
+    height: 50,
+    marginLeft: 10,
+    justifyContent: 'center'
   },
   balanceContainer: {
-    flex: 1
+    height:100,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   balanceText: {
-    fontSize: 80,
-    textAlign: "center",
-    fontWeight: "800"
+    fontSize: 45,
+    fontWeight: "600"
   },
   chartContainer: {
-    flex: 3,
-    width
+   height,
+   width
+  },
+  scrollContainer: {
+    marginTop: 15
   }
 });
