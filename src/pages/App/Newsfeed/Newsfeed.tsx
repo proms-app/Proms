@@ -22,8 +22,6 @@ export const Newsfeed = (props: PropsType) => {
   const events = getEvents();
   return (
     <ScrollView>
-      <NewsfeedSubHeader />
-
       {events.map(elem => (
         <EventCard key={`${elem.id}`} event={elem} />
       ))}
