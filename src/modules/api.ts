@@ -40,7 +40,8 @@ export function getEvents() {
   const event = {
     id: "eventId",
     title: "Chofeps",
-    date: "12/10/2018",
+    month: "Octobre",
+    day: "12",
     location: "Lille",
     subscriptions: 20,
     description:
@@ -50,7 +51,8 @@ export function getEvents() {
   const event2 = {
     id: "eventId2",
     title: "Chops2",
-    date: "12/10/2018",
+    month: "Octobre",
+    day: "15",
     location: "Lille",
     subscriptions: 160,
     description:
@@ -60,7 +62,8 @@ export function getEvents() {
   const event3 = {
     id: "eventId3",
     title: "Chofweps3",
-    date: "27/11/2018",
+    month: "Octobre",
+    day: "18",
     location: "Lille",
     subscriptions: 0,
     description:
@@ -69,7 +72,8 @@ export function getEvents() {
   const event4 = {
     id: "eventId4",
     title: "Chopwfs4",
-    date: "01/01/2019",
+    month: "Janvier",
+    day: "2",
     location: "Lille",
     subscriptions: 0,
     description:
