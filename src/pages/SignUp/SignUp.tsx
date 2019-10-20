@@ -15,7 +15,8 @@ type PropsType = {
 const styles = StyleSheet.create({
   areaView: {
     flex: 1,
-    backgroundColor: appStyle.color.primary
+    backgroundColor: appStyle.color.primary,
+    justifyContent: 'center'
   }
 });
 export class SignUp extends Component<PropsType> {
