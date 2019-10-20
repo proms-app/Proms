@@ -35,23 +35,9 @@ export const ProfileModif = (props: PropsType) => {
         </TouchableOpacity>
       </View>
       <View style={styles.profileContainer}>
-        <View style={styles.userContainer}>
           {ChampList.map(item => {
             return <UserFieldModif title={item.title} value={item.value} />;
           })}
-        </View>
-      </View>
-      <View style={styles.logoutContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            props.navigation.navigate("auth");
-          }}
-          style={styles.logoutButton}
-        >
-          <Text style={{ fontWeight: "bold", color: "white", fontSize: 18 }}>
-            Se déconnecter
-          </Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -63,20 +49,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5FCFF"
   },
   headContainer: {
-    flex: 1,
+    height: 80,
     backgroundColor: "#EBEDF0",
     justifyContent: "center"
   },
   headTitle: {
-    fontSize: 35,
+    fontSize: 30,
     fontWeight: "bold",
     marginHorizontal: 10
   },
   profileContainer: {
-    flex: 3,
-    marginVertical: 15,
+    flex: 4,
     marginHorizontal: 10,
-    flexDirection: "row"
   },
   profileTitle: {
     fontSize: 20,
@@ -85,16 +69,12 @@ const styles = StyleSheet.create({
   profileText: {
     fontSize: 25
   },
-  userContainer: {
-    flex: 2,
-    justifyContent: "space-between"
-  },
   validateContainer: {
-    marginHorizontal: 15,
+    marginVertical: 15,
+    marginHorizontal: 10,
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
-    flex: 0.5
   },
   cancelButtonText: {
     color: "red",
@@ -103,18 +83,5 @@ const styles = StyleSheet.create({
   validateButtonText: {
     color: "#59FFAF",
     fontSize: 15
-  },
-  logoutContainer: {
-    flex: 1,
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
-  logoutButton: {
-    width: 180,
-    height: 60,
-    backgroundColor: "#68E8B7",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 5
   }
 });
