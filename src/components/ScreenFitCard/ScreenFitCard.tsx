@@ -7,7 +7,7 @@ const { width: screenWidth, height: screenHeight } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   card: {
-    flex: 1,
+    height: 430,
     borderRadius: 10,
     marginHorizontal: (5 * screenWidth) / 100,
     marginVertical: (8 * screenHeight) / 100,

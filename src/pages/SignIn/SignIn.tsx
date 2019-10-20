@@ -21,7 +21,8 @@ type PropsType = {
 const styles = StyleSheet.create({
   areaView: {
     flex: 1,
-    backgroundColor: appStyle.color.primary
+    backgroundColor: appStyle.color.primary,
+    justifyContent: 'center'
   },
   titleContainer: {
     marginTop: 30,
