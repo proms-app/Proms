@@ -11,11 +11,11 @@ const styles = StyleSheet.create({
     flex: 1
   },
   profileTitle: {
-    fontSize: 20,
+    fontSize: 18,
     color: '#D1E3DE',
   },
   profileText: {
-    fontSize: 25,
+    fontSize: 21,
   },
 });
 

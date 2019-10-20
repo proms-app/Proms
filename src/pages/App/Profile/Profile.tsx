@@ -9,7 +9,6 @@ type PropsType = {
 };
 
 const ChampList = [
-  { title: "Bucque", apiValue: "bucque" },
   { title: "Nums", apiValue: "nums" },
   { title: "Email", apiValue: "email" },
   { title: "Adresse", apiValue: "lieu" }
@@ -25,12 +24,11 @@ export const Profile = (props: PropsType) => {
         </Text>
       </View>
       <View style={styles.profileContainer}>
-        <View style={styles.userContainer}>
-          {ChampList.map(item => {
-            return <UserField title={item.title} value={me[item.apiValue]} />;
-          })}
-        </View>
-        <View style={styles.modifContainer}>
+        <View style={styles.userContainer_1}>
+          <View style={styles.bucqueContainer}>
+            <UserField title='Bucque' value={me.bucque}/>
+          </View>
+          <View style={styles.modifContainer}>
           <TouchableOpacity
             onPress={() => {
               props.navigation.navigate("profilemodif");
@@ -39,7 +37,13 @@ export const Profile = (props: PropsType) => {
             <Text style={styles.modifButtonText}>Modifier</Text>
           </TouchableOpacity>
         </View>
+        </View>
+      <View style={styles.userContainer_2}>
+          {ChampList.map(item => {
+            return <UserField title={item.title} value={me[item.apiValue]} />;
+          })}
       </View>
+    </View>
       <View style={styles.logoutContainer}>
         <TouchableOpacity
           onPress={() => {
@@ -63,12 +67,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5FCFF"
   },
   headContainer: {
-    flex: 1,
+    height: 80,
     backgroundColor: "#EBEDF0",
     justifyContent: "center"
   },
   headTitle: {
-    fontSize: 35,
+    fontSize: 30,
     fontWeight: "bold",
     marginHorizontal: 10
   },
@@ -76,18 +80,24 @@ const styles = StyleSheet.create({
     flex: 4,
     marginVertical: 15,
     marginHorizontal: 10,
-    flexDirection: "row"
   },
   profileTitle: {
     fontSize: 20,
     color: "#D1E3DE"
   },
+  userContainer_1: {
+    flex: 1,
+    flexDirection: 'row'
+  },
+  bucqueContainer: {
+    flex: 4
+  },
+
   profileText: {
     fontSize: 25
   },
-  userContainer: {
-    flex: 3,
-    justifyContent: "space-around"
+  userContainer_2: {
+    flex: 3
   },
   modifContainer: {
     marginVertical: 5,
@@ -103,9 +113,9 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   logoutButton: {
-    width: 180,
-    height: 60,
-    backgroundColor: "#68E8B7",
+    width: 170,
+    height: 55,
+    backgroundColor: "#80FFAA",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 5
