@@ -5,7 +5,8 @@ import { useMyStore } from "../../../modules/me/me.hooks";
 import { OperationLine } from "../../../components/OperationLine/OperationLine";
 import { Svg, Path, LinearGradient, Defs, Stop } from "react-native-svg";
 import * as shape from "d3-shape";
-import { scaleTime, scaleLinear } from "d3-scale";
+import { scaleTime, scaleLinear, Line } from "d3-scale";
+import * as d from 'd3';
 
 type PropsType = {};
 
@@ -16,6 +17,10 @@ const d3 = {
 const { width } = Dimensions.get("window");
 const height = 140;
 const verticalPadding = 5; 
+const colors = {
+  axis: '#E4E4E4',
+  bars: '#15AD13'
+}
 
 const data = [
   { x: new Date(2019, 9, 1), y: 0 },
@@ -32,6 +37,8 @@ const scaleX = scaleTime()
 const scaleY = scaleLinear()
   .domain([0, 300])
   .range([height - verticalPadding, verticalPadding]);
+const maxValue = d.max(data, d => d.value)
+const topValue = Math.ceil(maxValue / this.props.round) * this.props.round
 const line = d3.shape
   .line()
   .x(d => scaleX(d.x))
@@ -50,6 +57,15 @@ export const Account = (props: PropsType) => {
       </View>
       <View style={styles.chartContainer}>
         <Svg {...{ width, height }}>
+        <Line
+            x1="0"
+            y1={scaleY(topValue) * -1}
+            x2={width}
+            y2={scaleY(topValue) * -1}
+            stroke={colors.axis}
+            strokeDasharray={[3, 3]}
+            strokeWidth="0.5"
+          />
           <Defs>
             <LinearGradient x1='50%' y1='0%' x2='50%' y2='100%' id='gradient'>
               <Stop stopColor="#DAF5ED" offset='0%' />
